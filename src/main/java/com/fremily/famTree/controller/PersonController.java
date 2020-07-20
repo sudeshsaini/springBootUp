@@ -2,7 +2,8 @@ package com.fremily.famTree.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fremily.famTree.model.Person;
@@ -19,6 +20,11 @@ public class PersonController {
 		return personService.findAll();
 	}
 	
+    @PostMapping(path = "/person")
+	public  Person insertPerson(@RequestBody Person person)
+	{
+		return personService.createPerson(person);
+	}
 	
 
 }
